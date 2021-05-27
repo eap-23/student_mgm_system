@@ -85,7 +85,7 @@ public class Student {
             }
 
             int subject = Util.inputPrompt("\nEnter subject to view courses (0 to finish enrolling): ",
-                    "Invalid command. Please enter a number less than " + (subjects.length + 1) + ": ",
+                    "Invalid command. Please enter a number between 0 and " + (subjects.length) + ": ",
                     subjects.length);
 //            System.out.print("\nEnter subject to view courses (0 to finish enrolling): ");
 //            Scanner in = new Scanner(System.in);
@@ -133,9 +133,9 @@ public class Student {
 
         boolean running = true;
         while (running) {
-            System.out.print("\nEnter course to enroll (0 to return to subjects): ");
-            Scanner in = new Scanner(System.in);
-            int course = in.nextInt();
+            int course = Util.inputPrompt("\nEnter course to enroll (0 to return to school subjects): ",
+                    "Invalid command. Please enter a number between 0 and " + (subjectCourses.length) + ": ",
+                    subjectCourses.length);
             if (course != 0) {
                 courses = courses + "\n\t" + subjectCourses[course - 1];
                 tuitionBalance = tuitionBalance + courseCost;
@@ -155,9 +155,10 @@ public class Student {
     //Pay Tuition. Mutator Method
     public void payTuition() {
         viewBalance();
-        System.out.print("Enter their payment: $");
-        Scanner in = new Scanner(System.in);
-        int payment = in.nextInt();
+//        System.out.print("Enter their payment: $");
+//        Scanner in = new Scanner(System.in);
+        int payment = Util.inputPrompt("Enter their payment: $",
+                "Invalid command. Please enter a valid dollar amount $");
         tuitionBalance = tuitionBalance - payment;
         // System.out.println("Thank you for entering payment of $" + payment);
         viewBalance();
