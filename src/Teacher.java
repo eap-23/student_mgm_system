@@ -38,14 +38,10 @@ public class Teacher {
         Scanner in = new Scanner(System.in);
         System.out.println("\nSCHOOL SUBJECTS");
         System.out.println("--------------------------");
-        System.out.print("\t1 - Math\n\t2 - English\n\t3 - Computer Science\n\t4 - Lab Science\n\t5 - History\n\nEnter teacher's subject: ");
-        int input = in.nextInt();
-
-        while ((input > 5) || (input == 0)) {
-            System.out.println("\tInvalid input. Please enter 1, 2, 3, 4, or 5");
-            System.out.print("\tEnter teacher's subject: ");
-            input = in.nextInt();
-        }
+        System.out.print("\t1 - Math\n\t2 - English\n\t3 - Computer Science\n\t4 - Lab Science\n\t5 - History");
+        int input = Util.inputPrompt("\n\nEnter teacher's subject: ",
+                "Invalid input. Please enter a number between 1 and 5: ",
+                5);
 
         if (input == 1) {
             subject = "Math";
@@ -66,9 +62,8 @@ public class Teacher {
 
     //Set Teacher's salary
     private void setInitialSalary() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter " + name + "'s starting salary: $");
-        this.salary = in.nextInt();
+        this.salary = Util.inputPrompt("Enter " + name + "'s starting salary: $",
+                "Invalid command. Please enter a valid dollar amount: $");
     }
 
     //Set a unique Teacher ID
@@ -92,10 +87,9 @@ public class Teacher {
 
     //Give Teacher a raise!
     public void adjustSalary() {
-        Scanner in = new Scanner(System.in);
         System.out.println("\nCurrent salary: $" + salary);
-        System.out.print("Enter new salary for " + name + ": $");
-        int newSalary = in.nextInt();
+        int newSalary = Util.inputPrompt("Enter new salary for " + name + ": $",
+                "Invalid command. Please enter a valid dollar amount: $");
         if (newSalary > salary) {
             System.out.println(name + "'s salary has been increased to $" + newSalary + "!");
         }

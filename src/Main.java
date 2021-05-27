@@ -42,9 +42,8 @@ public class Main {
                 }
             } else if (input == 2) {
                 //Ask Admin how many teachers they would like to add
-                System.out.print("\nEnter number of new teachers to add to payroll: ");
-                int numTeachers = in.nextInt();
-                in.nextLine(); //consume newline left-over from above nextInt()
+                int numTeachers = Util.inputPrompt("\nEnter number of new teachers to add to payroll: ",
+                        "Invalid command. Please enter a valid number: ");
                 for (int h = 0; h < numTeachers; h++) {
                     Teacher teacher = new Teacher();
                     teacherList.add(teacher);
@@ -61,9 +60,10 @@ public class Main {
                         System.out.println("\t" + (x + 1) + ". " + teacherList.get(x).getName());
                     }
                     System.out.println("\t" + (x + 1) + ". " + "Pay All Teachers!");
-                    System.out.print("\nSelect teacher to pay (0 to return to main menu): ");
-                    // Scanner in = new Scanner(System.in);
-                    int teacherSelect = in.nextInt();
+
+                    int teacherSelect = Util.inputPrompt("\nSelect teacher to pay (0 to return to main menu): ",
+                            "Invalid command. Please enter a number between 0 and " + (x + 1) + ": ",
+                            (x+1));
 
                     if (teacherSelect == 0) {
                         break;
@@ -83,11 +83,14 @@ public class Main {
                 while (givingRaises) {
                     System.out.println("\nSALARY ADJUSTMENT");
                     System.out.println("--------------------------");
-                    for (int x = 0; x < teacherList.size(); x++) {
+                    int x;
+                    for (x = 0; x < teacherList.size(); x++) {
                         System.out.println("\t" + (x + 1) + ". " + teacherList.get(x).getName());
                     }
-                    System.out.print("\nSelect teacher to adjust salary (0 to return to main menu): ");
-                    int teacherSelect = in.nextInt();
+
+                    int teacherSelect = Util.inputPrompt("\nSelect teacher to adjust salary (0 to return to main menu): ",
+                            "Invalid command. Please enter a number between 0 and " + x + ": ",
+                            x);
 
                     if (teacherSelect == 0) {
                         break;
@@ -112,30 +115,3 @@ public class Main {
     }
 }
 
-//    public static int inputPrompt(String firstMessage, String errorMessage, int maxInputNum) {
-//        Scanner in = new Scanner(System.in);
-//        int input = 0;
-//
-//        try {
-//            System.out.print(firstMessage);
-//            input = in.nextInt();
-//        }
-//        catch (InputMismatchException e) {
-//            in.nextLine();
-//        }
-//
-//        //Below code block will execute if string mismatch or input not within accepted range
-//        while (input < 1 || input > maxInputNum) {
-//            try {
-//                System.out.print(errorMessage);
-//                input = in.nextInt();
-//                in.nextLine();
-//            }
-//            catch (InputMismatchException e) {
-//                in.nextLine();
-//            }
-//        }
-//
-//        return input;
-//    }
-//}

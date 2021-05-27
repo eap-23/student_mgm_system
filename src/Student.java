@@ -155,16 +155,12 @@ public class Student {
     //Pay Tuition. Mutator Method
     public void payTuition() {
         viewBalance();
-//        System.out.print("Enter their payment: $");
-//        Scanner in = new Scanner(System.in);
         int payment = Util.inputPrompt("Enter their payment: $",
                 "Invalid command. Please enter a valid dollar amount $");
         tuitionBalance = tuitionBalance - payment;
-        // System.out.println("Thank you for entering payment of $" + payment);
         viewBalance();
         School.updateTotalMoneyEarned(payment);
     }
-
 
     //METHOD OVERRIDE
     public String toString() {
