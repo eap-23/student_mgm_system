@@ -1,3 +1,8 @@
+/*This class is to verify user login to student management system
+User has 3 attempts to successfully login
+Username and password entered is checked against username/passwords in users.txt
+If a match is found, then login successful and user can access student management system*/
+
 import java.io.File;
 import java.util.*;
 
@@ -20,10 +25,14 @@ public class Login {
             System.out.print("\tEnter Password: ");
             this.password = in.nextLine();
 
+            /*Break from loop if username/password match found
+            Access to student management system allowed after loop break*/
             if(verifyLogin(username, password, filePath) == true) {
                 System.out.println("\n\t# Welcome " + username + "! # ");
                 break;
             }
+            /*If no username/password match then number of attempts allowed goes down by one
+            After user fails 3 attempts, program will exit*/
             else {
                 numAttempts--;
                 if (numAttempts == 0) {
@@ -45,8 +54,9 @@ public class Login {
         }
     }
 
+    //Search for username/password match in users.txt file
     private static boolean verifyLogin(String username, String password, String filePath) {
-        boolean found = false; //Only perform search while match hasn't been found yet
+        boolean matchFound = false; //Only perform search while match hasn't been found yet
         String searchUsername;
         String searchPassword;
         Scanner s;
@@ -55,12 +65,12 @@ public class Login {
             s = new Scanner(new File(filePath));
             s.useDelimiter("[,\n]");
 
-            while(s.hasNext() && !found) {
+            while(s.hasNext() && !matchFound) {
                 searchUsername = s.next();
                 searchPassword = s.next();
 
                 if(searchUsername.trim().equals(username.trim()) && searchPassword.trim().equals(password.trim())) {
-                    found = true;
+                    matchFound = true;
                 }
 
             }
@@ -70,12 +80,7 @@ public class Login {
             System.out.println("Error");
         }
 
-        if(found == true) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return matchFound;
     }
 }
 
