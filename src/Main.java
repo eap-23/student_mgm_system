@@ -9,8 +9,10 @@ public class Main {
         List<Student> studentList = new ArrayList<>();
         List<Teacher> teacherList = new ArrayList<>();
 
+        System.out.println();
+
         while (true) {
-            System.out.println("\n######### Main Menu ##########\n");
+            System.out.println("######### Main Menu ##########\n");
 
             System.out.println("\t1. Add New Students");
             System.out.println("\t2. Add New Teachers");
@@ -28,7 +30,7 @@ public class Main {
                 //Ask admin how many students they would like to add
                 int numStudents = Util.inputPrompt("\nEnter number of new students to enroll: ",
                         "Invalid command. Please enter a valid number: ");
-//
+
                 for (int n = 0; n < numStudents; n++) {
                     Student student = new Student();
                     studentList.add(student);

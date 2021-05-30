@@ -28,7 +28,7 @@ public class Student {
     private static String[] labSciCourses = {"Ecology", "Genetics", "Cellular Biology",
             "Environmental Science", "Physics"};
     private static String[] historyCourses = {"American Government", "Epidemics",
-            "World War II", "Medievel Europe", "Greek Mythology"};
+            "World War II", "Medieval Europe", "Greek Mythology"};
 
     /*
     constructor
@@ -43,7 +43,7 @@ public class Student {
         System.out.print("Enter Student Name: ");
         this.name = in.nextLine();
 
-        System.out.print("\n\t1 - Freshman\n\t2 - Sophmore\n\t3 - Junior\n\t4 - Senior\n");
+        System.out.print("\n\t1 - Freshman\n\t2 - Sophomore\n\t3 - Junior\n\t4 - Senior\n");
         int input = Util.inputPrompt("\nEnter student class level: ",
                 "Invalid command.  Please enter a number between 1 and 4: ",
                 1, 4);
@@ -167,7 +167,7 @@ public class Student {
                 "\nName: " + name +
                 "\nGrade Level: " + gradeYear +
                 "\nStudent ID: " + studentID +
-                "\nCourses Enrolled" + courses +
+                "\nCourses Enrolled:" + courses +
                 "\nBalance: $" + tuitionBalance +
                 "\n--------------------------" +
                 "\n";
