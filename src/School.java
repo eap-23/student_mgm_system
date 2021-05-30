@@ -15,65 +15,29 @@ public class School {
 
     /*constructor method
     Create new school object
+    Parameters include:
     List of teachers in the school
-    List of students in the school
-    */
+    List of students in the school*/
     public School(List<Teacher> teachers, List<Student> students) {
         this.teachers = teachers;
         this.students = students;
-
-        // totalMoneyEarned=0;
-//       totalMoneySpent=0;
-//       totalFunds=0;
     }
 
-    //accessor methods
-    //return list of teachers in the school
-    public List<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    //return list of students in the school
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    //return total money earned by school
-    public int getTotalMoneyEarned() {
-        return totalMoneyEarned;
-    }
-
-    //return total money spent by school
-    public int getTotalMoneySpent() {
-        return totalMoneySpent;
-    }
-
-    //mutator methods
-    //Add a new teacher to the school
-    public void addTeacher(Teacher teacher) {
-        teachers.add(teacher);
-    }
-
-    //Add a new student to the school
-    public void addStudent(Student student) {
-        students.add(student);
-    }
-
-    //Adds money earned to the total money earned
+    /*Updates total funds and total money earned
+    Money earned by the school is adjusted by tuition payed by students*/
     public static void updateTotalMoneyEarned(int moneyEarned) {
         totalMoneyEarned += moneyEarned;
         updateTotalFunds();
     }
 
-    /*Update the money spent by the school
-    /Money spent is salary given to the teachers */
+    /*Updates total funds and total money spent
+    Money spent is salary given to the teachers */
     public static void updateTotalMoneySpent(int moneySpent) {
-        // totalMoneyEarned -= moneySpent;
         totalMoneySpent += moneySpent;
         updateTotalFunds();
     }
 
-    //Update the total current funds of school
+    //Updates the total funds of school
     private static void updateTotalFunds() {
         if (totalMoneyEarned >= totalMoneySpent){
             totalFunds = totalMoneyEarned - totalMoneySpent;
@@ -90,6 +54,4 @@ public class School {
                 "\nTotal money earned to date: $" + totalMoneyEarned +
                 "\nTotal current school funds: $" + totalFunds;
     }
-
-
 }
