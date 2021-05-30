@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.*;
 
 public class Main {
@@ -7,13 +6,10 @@ public class Main {
         Login newLogin = new Login();
         newLogin.startLogin();
 
-        Scanner in = new Scanner(System.in);
-        boolean running = true;
         List<Student> studentList = new ArrayList<>();
         List<Teacher> teacherList = new ArrayList<>();
 
-        SYSTEM:
-        while (running) {
+        while (true) {
             System.out.println("\n######### Main Menu ##########\n");
 
             System.out.println("\t1. Add New Students");
@@ -51,8 +47,7 @@ public class Main {
                 }
             } else if (input == 3) {
                 //print list of teachers and prompt user to select teacher to pay
-                boolean payingTeachers = true;
-                while (payingTeachers) {
+                while (true) {
                     System.out.println("\nTEACHERS");
                     System.out.println("--------------------------");
                     int x;
@@ -79,8 +74,7 @@ public class Main {
             } else if (input == 4) {
             /*print list of teachers and prompt selection of
             teacher to give raise */
-                boolean givingRaises = true;
-                while (givingRaises) {
+                while (true) {
                     System.out.println("\nSALARY ADJUSTMENT");
                     System.out.println("--------------------------");
                     int x;
