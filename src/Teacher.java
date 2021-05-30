@@ -35,7 +35,6 @@ public class Teacher {
     }
 
     private void setTeacherSubject() {
-        Scanner in = new Scanner(System.in);
         System.out.println("\nSCHOOL SUBJECTS");
         System.out.println("--------------------------");
         System.out.print("\t1 - Math\n\t2 - English\n\t3 - Computer Science\n\t4 - Lab Science\n\t5 - History");

@@ -5,7 +5,7 @@ public final class Util {
 
     public static int inputPrompt(String firstMessage, String errorMessage) {
         Scanner in = new Scanner(System.in);
-        int input = 0;
+        int input;
 
         try {
             System.out.print(firstMessage);

@@ -76,8 +76,7 @@ public class Student {
     //Enroll student in course
     public void enroll() {
         //initialize a loop to enroll in courses, gives user option to quit
-        boolean running = true;
-        while (running) {
+        while (true) {
             System.out.println("\nSCHOOL SUBJECTS");
             System.out.println("--------------------------");
             for (int x=0; x < subjects.length; x++) {
@@ -131,8 +130,7 @@ public class Student {
             System.out.println("\t" + (x + 1) + ". " + subjectCourses[x]);
         }
 
-        boolean running = true;
-        while (running) {
+        while (true) {
             int course = Util.inputPrompt("\nEnter course to enroll (0 to return to school subjects): ",
                     "Invalid command. Please enter a number between 0 and " + (subjectCourses.length) + ": ",
                     subjectCourses.length);
