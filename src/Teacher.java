@@ -1,7 +1,6 @@
-/*
-This class is responsible for keeping track of
-teachers, name, ID, salary
-*/
+/*This class is responsible for keeping track of
+teacher information including name, ID, salary,
+and subject they teach*/
 
 import java.util.Scanner;
 
@@ -13,13 +12,12 @@ public class Teacher {
     private String teacherID;
     private static int id=1000;
 
-    /*
-    constructor
+    /*constructor
     Create a new Teacher object
-    Teacher ID must be unique
-    Name of the Teacher
-    Salary of the Teacher
-    */
+    Name of teacher
+    Teacher's subject
+    Teacher's salary
+    Unique teacher ID is auto-generated*/
     public Teacher() {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter Teacher Name: ");
@@ -30,10 +28,13 @@ public class Teacher {
         setTeacherID();
     }
 
+    //Accessor method. Return teacher's name
     public String getName() {
         return name;
     }
 
+    /*Set teacher's subject
+    Generate list of subject options and prompt user selection*/
     private void setTeacherSubject() {
         System.out.println("\nSCHOOL SUBJECTS");
         System.out.println("--------------------------");
@@ -68,15 +69,14 @@ public class Teacher {
     //Set a unique Teacher ID
     private void setTeacherID() {
       /* 5 + ID, teacher IDs will always start with 5
-      to distinguish teachers from students
-      */
+      to distinguish teachers from students (IDs set 1-4)*/
         id++;
         this.teacherID =  5 + "" + id;
     }
 
     /*Pay teacher their biweekly salary
     Keep track of money earned by teacher
-    Update money spent by school */
+    Update money spent by school*/
     public void payTeacher() {
         salaryEarned += (salary / 26);
         System.out.println("\n" + name + " has been payed!");
@@ -84,7 +84,7 @@ public class Teacher {
         School.updateTotalMoneySpent(salary / 26);
     }
 
-    //Give Teacher a raise!
+    //Give teacher a raise or pay cut
     public void adjustSalary() {
         System.out.println("\nCurrent salary: $" + salary);
         int newSalary = Util.inputPrompt("Enter new salary for " + name + ": $",
@@ -100,7 +100,7 @@ public class Teacher {
     }
 
 
-    //METHOD OVERRIDE
+    //METHOD OVERRIDE. Print teacher info
     public String toString() {
         return "\nTeacher Info" +
                 "\n--------------------------" +

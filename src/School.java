@@ -1,8 +1,8 @@
-/*
-This class is responsible for keeping track of
-multiple teachers, multiple students
-Use ArrayList for teachers and students
-*/
+/*This class is responsible for storing
+all teachers and students for a school,
+total money earned,
+total money spent,
+and total funds*/
 
 import java.util.List;
 
