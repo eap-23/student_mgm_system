@@ -77,7 +77,7 @@ public class Login {
             s.close();
         }
         catch(Exception e) {
-            System.out.println("Error");
+            System.out.println("Sorry! An unexpected error was encountered.");
         }
 
         return matchFound;
