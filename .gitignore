@@ -1,0 +1,12 @@
+#Ignore Mac system files
+.DS_store
+
+#Ignore personal IDE config files
+.idea/
+
+#Ignore build output directories
+out/
+
+#Ignore .iml
+*.iml
+
