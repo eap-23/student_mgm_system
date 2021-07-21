@@ -39,19 +39,15 @@ public class School {
 
     //Updates the total funds of school
     private static void updateTotalFunds() {
-        if (totalMoneyEarned >= totalMoneySpent){
-            totalFunds = totalMoneyEarned - totalMoneySpent;
-        }
-        else {
-            totalFunds = totalMoneySpent - totalMoneyEarned;
-        }
+        totalFunds = totalMoneyEarned - totalMoneySpent;
     }
 
     public String toString() {
         return "\nSCHOOL FUNDS" +
-                "\n--------------------------" +
+                "\n------------------------------" +
                 "\nTotal money spent to date: $" + totalMoneySpent +
                 "\nTotal money earned to date: $" + totalMoneyEarned +
-                "\nTotal current school funds: $" + totalFunds;
+                "\nTotal current school funds: $" + totalFunds +
+                "\n------------------------------\n";
     }
 }
